@@ -12,6 +12,8 @@ RUN curl -SL 'https://s3.amazonaws.com/downloads.mirthcorp.com/connect/3.8.1.b24
 
 RUN useradd -u 1000 mirth
 RUN mkdir -p /opt/connect/appdata && chown -R mirth:mirth /opt/connect/appdata
+COPY keystore.jks /opt/connect/appdata/
+RUN chown mirth:mirth /opt/connect/appdata/keystore.jks
 
 VOLUME /opt/connect/appdata
 VOLUME /opt/connect/custom-extensions
